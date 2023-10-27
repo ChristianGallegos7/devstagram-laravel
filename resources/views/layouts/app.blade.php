@@ -13,10 +13,24 @@
     <header class="p-5 border-b bg-white shadow">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-3xl font-bold">DevStagram</h1>
-            <nav class="flex gap-4 items-center">
-                <a class="font-bold uppercase text-gray-600" href="#">Login</a>
-                <a class="font-bold uppercase text-gray-600" href="{{ route('registro.index') }}">Crear cuenta</a>
-            </nav>
+            @auth
+                <nav class="flex gap-4 items-center">
+                    <a class="font-normal text-gray-600" href="#">
+                        Hola:
+                        <span>{{auth()->user()->username}}</span>
+                    </a>
+                    <a class="font-bold uppercase text-gray-600" href="#">Cerrar Sesión</a>
+                </nav>
+            @endauth
+            @guest
+                <nav class="flex gap-4 items-center">
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('login') }}">
+                        Login
+                    </a>
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('registro.index') }}">Crear cuenta</a>
+                </nav>
+            @endguest
+
         </div>
     </header>
 
