@@ -15,6 +15,7 @@
             <h1 class="text-3xl font-bold">DevStagram</h1>
             @auth
                 <nav class="flex gap-4 items-center">
+                    <a href="" class="text-gray-100 text-sm bg-gray-950 p-2">Crear</a>
                     <a class="font-normal text-gray-600" href="#">
                         Hola:
                         <span>{{ auth()->user()->username }}</span>
