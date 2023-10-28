@@ -17,9 +17,12 @@
                 <nav class="flex gap-4 items-center">
                     <a class="font-normal text-gray-600" href="#">
                         Hola:
-                        <span>{{auth()->user()->username}}</span>
+                        <span>{{ auth()->user()->username }}</span>
                     </a>
-                    <a class="font-bold uppercase text-gray-600" href="#">Cerrar Sesión</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="font-bold uppercase text-gray-600">Cerrar Sesión</button>
+                    </form>
                 </nav>
             @endauth
             @guest
